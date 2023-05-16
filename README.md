@@ -7,6 +7,7 @@ NOTICE!!!
 
 admin credentials must contain Word "admin" in the Email
 and Contains "123" in the password
+Anything else is Considered as client account
 
 Deployed Link
 
