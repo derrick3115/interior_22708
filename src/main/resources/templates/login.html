@@ -10,22 +10,22 @@
 </head>
 <body>
 <div class="container">
-    <form th:action="@{/authentication}"  th:object="${login}" method="post" >
+    <form th:action="@{/login}"   method="post" >
     <div class="card">
         <a class="login">Log in</a>
         <div class="inputBox">
-            <input th:field="*{email}" type="email" placeholder="Enter Email" name="email" required="required">
+            <input type="email" placeholder="Enter Email" name="email" required="required">
             <span class="user">Email</span>
         </div>
 
         <div class="inputBox">
-            <input th:field="*{password}" type="password" placeholder="Enter Password" name="password" required="required">
+            <input type="password" placeholder="Enter Password" name="password" required="required">
             <span>Password</span>
         </div>
 
 
 
-        <a th:href="@{/Signup}" style="color: black">Sign Up</a>
+        <a th:href="@{/registration}" style="color: black">Sign Up</a>
 
 
         <button class="enter">Enter</button>

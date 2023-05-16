@@ -42,6 +42,12 @@ public class DesignController {
        model.addAttribute("search",student);
         return "index";
     }
+    @GetMapping("/gallery")
+    public String gallerypage(){ return "gallery";
+    }
+    @GetMapping("/gallery2")
+    public String gallerypage2(){ return "gallery2";
+    }
 
     @PostMapping("/search_one")
     public String getEmployee(@ModelAttribute("search") Desing student,Model model){
@@ -57,7 +63,7 @@ public class DesignController {
         return "employee";
     }
 
-    @GetMapping("/registration")
+    @GetMapping("/registration1")
     public String registerStudentPage(Model model){
         Desing stud = new Desing();
         model.addAttribute("design", stud);
@@ -99,9 +105,9 @@ public class DesignController {
 
         Desing savedDesign = designService.saveDesign(theDesign);
         if(savedDesign != null){
-            return "redirect:/registration?success";
+            return "redirect:/registration1?success";
         }
-        return "redirect:/registration?error";
+        return "redirect:/registration1?error";
     }
 
     @GetMapping("/home/edit/{designID}")
