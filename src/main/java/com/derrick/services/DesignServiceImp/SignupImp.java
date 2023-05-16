@@ -7,7 +7,10 @@ import com.derrick.services.SignupInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class SignupImp implements SignupInterface {
   userAuthentication dao=new userAuthentication();
     @Autowired
@@ -22,13 +25,19 @@ public class SignupImp implements SignupInterface {
     }
 
     @Override
-    public Signup findAccount(String password) {
-        return signupRepository.findById(password).get();
+    public Signup findAccount(Long id) {
+        return signupRepository.findById(id).get();
     }
 
     @Override
     public boolean userCheck(String email, String password) {
 
-        return dao.loginUser(email, password);
+      try {
+        return signupRepository.existsByEmailAndPassword(email, password);
+      } catch (Exception ex) {
+        ex.printStackTrace();
+        return false;
+
+      }
     }
 }

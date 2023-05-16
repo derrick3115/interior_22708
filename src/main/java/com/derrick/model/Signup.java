@@ -1,26 +1,38 @@
 package com.derrick.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Signup {
-  @Id
-  protected String password;
-    protected String email;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+  private String password;
+    private String email;
 
 
     public Signup() {
     }
 
-    public Signup(String password) {
-        this.password = password;
+    public Signup(Long id) {
+        this.id = id;
     }
 
     public Signup(String password, String email) {
         this.password = password;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPassword() {
